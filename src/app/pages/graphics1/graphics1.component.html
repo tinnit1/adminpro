@@ -1,1 +1,43 @@
-<p>graphics1 works!</p>
+<div class="row">
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ graphics.graphics1.legend }}</h4>
+       <app-grafico-dona [labels]="graphics.graphics1.labels" [data]="graphics.graphics1.data" graphicType="doughnut"></app-grafico-dona>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ graphics.graphics2.legend }}</h4>
+        <app-grafico-dona [labels]="graphics.graphics2.labels" [data]="graphics.graphics2.data" graphicType="doughnut"></app-grafico-dona>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ graphics.graphics3.legend }}</h4>
+        <app-grafico-dona [labels]="graphics.graphics3.labels" [data]="graphics.graphics3.data" graphicType="doughnut"></app-grafico-dona>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{ graphics.graphics4.legend }}</h4>
+        <app-grafico-dona [labels]="graphics.graphics4.labels" [data]="graphics.graphics4.data" graphicType="doughnut"></app-grafico-dona>
+      </div>
+    </div>
+  </div>
+
+</div>

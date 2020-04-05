@@ -26,7 +26,6 @@ import {FormsModule} from '@angular/forms';
     APP_ROUTES,
     PagesModule,
     FormsModule
-
   ],
   providers: [],
   exports: [
