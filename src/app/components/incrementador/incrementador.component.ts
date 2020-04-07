@@ -19,8 +19,6 @@ export class IncrementadorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('legend', this.legend);
-    console.log('progress', this.percentage);
   }
 
   onChanges(newValue: number) {
