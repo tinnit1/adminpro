@@ -19,6 +19,9 @@ import {GraficoDonaComponent} from '../components/grafico-dona/grafico-dona.comp
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import {PipesModule} from '../pipes/pipes.module';
+import { ProfileComponent } from './profile/profile.component';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -31,6 +34,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         AccountSettingsComponent,
         PromisesComponent,
         RxjsComponent,
+        ProfileComponent,
     ],
     exports: [
         DashboardComponent,
@@ -41,7 +45,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         SharedModule,
         PAGES_ROUTES,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        PipesModule,
+        CommonModule
     ]
 })
 export class PagesModule { }
