@@ -22,6 +22,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import {PipesModule} from '../pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
 import {CommonModule} from '@angular/common';
+import { UsersComponent } from './users/users.component';
+import {ModalUploadImageComponent} from '../components/modal-upload-image/modal-upload-image.component';
 
 @NgModule({
     declarations: [
@@ -35,6 +37,8 @@ import {CommonModule} from '@angular/common';
         PromisesComponent,
         RxjsComponent,
         ProfileComponent,
+        UsersComponent,
+        ModalUploadImageComponent
     ],
     exports: [
         DashboardComponent,

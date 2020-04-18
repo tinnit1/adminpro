@@ -98,7 +98,9 @@ export class UserService {
     let url = URL_SERVICES + '/user/' + user._id;
     url += '?token=' + this.token;
     return this.http.put(url, user).pipe(map((resp: any) => {
-      this.saveLocalStorage(resp.user._id, this.token, resp.user);
+      if (user._id === this.user._id) {
+        this.saveLocalStorage(resp.user._id, this.token, resp.user);
+      }
       Swal.fire('Update user', user.name, 'success');
       return true;
     }));
@@ -115,5 +117,34 @@ export class UserService {
       .catch(resp => {
         console.log(resp);
       });
+  }
+
+  loadUsers(page: number = 0) {
+    const url = URL_SERVICES + '/user?page=' + page;
+    return this.http.get(url);
+  }
+
+  searchUsers(term: string) {
+    const url = URL_SERVICES + '/search/collection/user/' + term;
+    return this.http.get(url)
+      .pipe(
+        map((resp: any) => resp.user)
+      );
+  }
+
+  deleteUser(id: string) {
+    let url = URL_SERVICES + '/user/' + id;
+    url += '?token=' + this.token;
+    return this.http.delete(url)
+      .pipe(
+        map(() => {
+          Swal.fire(
+            'Eliminado!',
+            'El usuario fue eliminado.',
+            'success'
+          );
+          return true;
+        })
+      );
   }
 }
