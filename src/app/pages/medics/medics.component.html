@@ -1,0 +1,60 @@
+<div class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <input #input (keyup)="searchMedic( input.value )" type="text" class="form-control" placeholder="search medic...">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <button [routerLink]="['/medic','new']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+            <i class="fa fa-plus"> Crear hospital</i>
+          </button>
+        </div>
+        <h3 class="card-title">Medics registrados ( <small>{{medicService.totalMedics}}</small> )</h3>
+
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Image</th>
+            <th>Medic</th>
+            <th>Hospital</th>
+            <th></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let medic of medics">
+            <td>
+              <img [src]="medic.image | imagen:'medic'" class="img-50 img-circle">
+            </td>
+            <td>
+              {{medic.name}}
+            </td>
+            <td>
+              {{medic.hospital.name}}
+            </td>
+            <td>
+              <button [routerLink]="['/medic',medic._id]" class="btn btn-primary">
+                <i class="fa fa-edit"></i>
+              </button>
+
+              <button (click)="deleteMedic( medic._id )" class="btn btn-danger">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <button (click)="ChangePage(-itemsLoad)" class="btn btn-secondary">Anteriores</button>
+        <button (click)="ChangePage(itemsLoad)" class="btn btn-secondary">Siguientes</button>
+      </div>
+    </div>
+  </div>
+</div>
