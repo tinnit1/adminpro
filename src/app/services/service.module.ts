@@ -10,7 +10,7 @@ import {
   LoginGuardGuard,
   UploadFileService,
   HospitalService,
-  MedicService
+  MedicService, AdminGuard
 } from './service.index';
 import {ModalUploadImageService} from '../components/modal-upload-image/modal-upload-image.service';
 
@@ -25,6 +25,7 @@ import {ModalUploadImageService} from '../components/modal-upload-image/modal-up
     SharedService,
     UserService,
     LoginGuardGuard,
+    AdminGuard,
     UploadFileService,
     ModalUploadImageService,
     HospitalService,

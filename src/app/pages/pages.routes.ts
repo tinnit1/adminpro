@@ -6,12 +6,13 @@ import {Graphics1Component} from './graphics1/graphics1.component';
 import {AccountSettingsComponent} from './account-settings/account-settings.component';
 import {PromisesComponent} from './promises/promises.component';
 import {RxjsComponent} from './rxjs/rxjs.component';
-import {LoginGuardGuard} from '../services/service.index';
+import {AdminGuard, LoginGuardGuard} from '../services/service.index';
 import {ProfileComponent} from './profile/profile.component';
 import {UsersComponent} from './users/users.component';
 import {HospitalsComponent} from './hospitals/hospitals.component';
 import {MedicComponent} from './medics/medic.component';
 import {MedicsComponent} from './medics/medics.component';
+import {SearchComponent} from './search/search.component';
 
 const pagesRoutes: Routes = [
   {
@@ -26,8 +27,14 @@ const pagesRoutes: Routes = [
       {path: 'promises', component: PromisesComponent, data: {title: 'Promises'}},
       {path: 'rxjs', component: RxjsComponent, data: {title: 'RxJs'}},
       {path: 'profile', component: ProfileComponent, data: {title: 'Profile user'}},
+      {path: 'search/:term', component: SearchComponent, data: {title: 'Search'}},
       // Mantenimientos
-      {path: 'users', component: UsersComponent, data: {title: 'Users dashboard'}},
+      {
+        path: 'users',
+        component: UsersComponent,
+        canActivate: [ AdminGuard],
+        data: {title: 'Users dashboard'}
+      },
       {path: 'hospitals', component: HospitalsComponent, data: {title: 'Hospitals dashboard'}},
       {path: 'medics', component: MedicsComponent, data: {title: 'Medics dashboard'}},
       {path: 'medic/:id', component: MedicComponent, data: {title: 'Update medic'}},
