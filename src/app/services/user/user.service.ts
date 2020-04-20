@@ -37,6 +37,25 @@ export class UserService {
     }
   }
 
+  extendToken() {
+    let url = URL_SERVICES + '/login/extendToken';
+    url += '?token=' + this.token;
+
+    return this.http.get(url)
+      .pipe(
+        map((resp: any) => {
+          this.token = resp.token;
+          localStorage.setItem('token', this.token);
+          return true;
+        })
+      )
+      .pipe(catchError(err => {
+        this.router.navigate(['/login']);
+        Swal.fire('Error', 'No fue posible renovar el token', 'error');
+        return throwError(err);
+      }));
+  }
+
   isLogin() {
     return (this.token.length > 5) ? true : false;
   }
@@ -84,7 +103,7 @@ export class UserService {
           return true;
         })
       ).pipe(catchError(err => {
-        Swal.fire('Error', err.error.message, 'error')
+        Swal.fire('Error', err.error.message, 'error');
         return throwError(err);
       }));
   }
@@ -97,9 +116,10 @@ export class UserService {
         return resp.user;
       }
     )).pipe(catchError(err => {
-      Swal.fire(err.error.message, err.error.errors.message, 'error')
+      Swal.fire(err.error.message, err.error.errors.message, 'error');
       return throwError(err);
-    }));;
+    }));
+
 
   }
 

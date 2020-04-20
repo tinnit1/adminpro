@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '../shared/shared.modeule';
+import { SharedModule } from '../shared/shared.module';
 
-import { PagesComponent } from './pages.component';
 
 import { FormsModule} from '@angular/forms';
 
@@ -31,7 +30,7 @@ import { SearchComponent } from './search/search.component';
 
 @NgModule({
     declarations: [
-        PagesComponent,
+        // PagesComponent,
         DashboardComponent,
         ProgressComponent,
         Graphics1Component,
@@ -42,7 +41,7 @@ import { SearchComponent } from './search/search.component';
         RxjsComponent,
         ProfileComponent,
         UsersComponent,
-        ModalUploadImageComponent,
+        // ModalUploadImageComponent,
         HospitalsComponent,
         MedicsComponent,
         MedicComponent,

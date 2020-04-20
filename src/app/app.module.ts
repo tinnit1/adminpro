@@ -17,7 +17,8 @@ import {ServiceModule} from './services/service.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
-import {SettingsService} from './services/settings/settings.service';
+import {PagesComponent} from './pages/pages.component';
+import {SharedModule} from './shared/shared.module';
 
 
 
@@ -26,14 +27,15 @@ import {SettingsService} from './services/settings/settings.service';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModule,
     FormsModule,
     ReactiveFormsModule,
-    ServiceModule
+    ServiceModule,
+    SharedModule
   ],
   providers: [],
   exports: [
